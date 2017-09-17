@@ -12,7 +12,7 @@ module.exports = function(config) {
       'js/*.js',
       'spec/*-spec.js',
     ],
-    
+
     exclude: [
     ],
     preprocessors: {

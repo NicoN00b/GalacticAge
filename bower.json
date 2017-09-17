@@ -11,7 +11,7 @@
     "Conversion",
     "Calculator"
   ],
-  "homepage": "",
+  "homepage": "https://github.com/nicholasraethke/GalacticAge",
   "ignore": [
     "**/.*",
     "node_modules",
