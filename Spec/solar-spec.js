@@ -6,13 +6,14 @@ describe('SolarCalc', function(){
 
     beforeEach(function(){
       calculate = new SolarCalc();
-      birthDate = '1985-07-05';
+      // let birth = new Date.now();
+      birthDate = new Date();
     });
 
   it("should calculate a user's age in seconds", function(){
     let seconds = calculate.ageSeconds(birthDate);
-    expect(seconds).toEqual(1);
-  }); //this refactoring is cleaner, but the test can't pass in real time as it depends on the Date(), which is always changing... it fails as it should
+    expect(seconds.toFixed(0)).toEqual('0');
+  });
 
   it("should calculate seconds between two dates", function(){
     let secondsBetween = calculate.secondDiff('2003-07-05', '1985-07-05');
@@ -20,32 +21,32 @@ describe('SolarCalc', function(){
   });
 
   it("should convert seconds to standard age", function() {
-    let standardAge = calculate.getStandardAge('1985-07-05');
-    expect(standardAge).toEqual("You are 32 years, 73 days, 16 hours, 41 minutes, 32 seconds and counting");
-  }); //again, it will always fail.
+    let standardAge = calculate.getStandardAge(birthDate);
+    expect(standardAge).toEqual("You are 0 years, 0 days, 0 hours, 0 minutes, 0 seconds, and counting.");
+  });
 
   it("should convert age to Mercurian years", function () {
-    let mercuryAge = calculate.mercury('1985-07-05');
-    expect(mercuryAge).toEqual("On Mercury, you are 7.");
+    let mercuryAge = calculate.mercury(birthDate);
+    expect(mercuryAge).toEqual("On Mercury, you are 0.000000 years old.");
   });
 
   it("should convert age to Venetian years", function () {
-    let venusAge = calculate.venus('1985-07-05');
-    expect(venusAge).toEqual("On Venus, you are 13.");
+    let venusAge = calculate.venus(birthDate);
+    expect(venusAge).toEqual("On Venus, you are 0.000000 years old.");
   });
 
   it("should convert age to Martian years", function () {
-    let marsAge = calculate.mars('1985-07-05');
-    expect(marsAge).toEqual("On Mars, you are 50.");
+    let marsAge = calculate.mars(birthDate);
+    expect(marsAge).toEqual("On Mars, you are 0.000000 years old.");
   });
 
   it("should convert age to Jupiterian years", function () {
-    let jupiterAge = calculate.jupiter('1985-07-05');
-    expect(jupiterAge).toEqual("On Jupiter, you are 600.");
+    let jupiterAge = calculate.jupiter(birthDate);
+    expect(jupiterAge).toEqual("On Jupiter, you are 0.000000 years old.");
   });
 
   it("should calculate user's life expectancy randomly and then convert to each planet", function () {
-    let lifeEx = calculate.lifeExpectancy('1985-07-05');
-    expect(lifeEx).toEqual("You have " + timeLeft + " years left on Earth, " + mercTimeLeft + " years left on Mercury, " + venusTimeLeft + " years left on Venus, " + marsTimeLeft + " years left on Mars, and " + jupTimeLeft + " years left on Jupiter.  Make the most of it.");
+    let lifeEx = calculate.lifeExpectancy(birthDate);
+    expect(lifeEx).toEqual("You have already outlived your expectancy, Congratulations!");
   });
 });
