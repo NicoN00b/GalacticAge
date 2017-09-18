@@ -26,12 +26,12 @@ describe('SolarCalc', function(){
 
   it("should convert age to Mercurian years", function () {
     let mercuryAge = calculate.mercury('1985-07-05');
-    expect(mercuryAge).toEqual("On Mercury, you are 14.");
+    expect(mercuryAge).toEqual("On Mercury, you are 7.");
   });
 
   it("should convert age to Venetian years", function () {
     let venusAge = calculate.venus('1985-07-05');
-    expect(venusAge).toEqual("On Venus, you are" + venusAge + ".");
+    expect(venusAge).toEqual("On Venus, you are 13.");
   });
 
   it("should convert age to Martian years", function () {
@@ -42,5 +42,10 @@ describe('SolarCalc', function(){
   it("should convert age to Jupiterian years", function () {
     let jupiterAge = calculate.jupiter('1985-07-05');
     expect(jupiterAge).toEqual("On Jupiter, you are 600.");
+  });
+
+  it("should calculate user's life expectancy randomly and then convert to each planet", function () {
+    let lifeEx = calculate.lifeExpectancy('1985-07-05');
+    expect(lifeEx).toEqual("You have " + timeLeft + " years left on Earth, " + mercTimeLeft + " years left on Mercury, " + venusTimeLeft + " years left on Venus, " + marsTimeLeft + " years left on Mars, and " + jupTimeLeft + " years left on Jupiter.  Make the most of it.");
   });
 });

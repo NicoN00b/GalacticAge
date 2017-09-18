@@ -1,0 +1,11 @@
+.container {
+  background-image: url(../img/hyperspace.jpg);
+}
+
+.output {
+  display: hide;
+}
+
+.diff-output {
+  display: hide;
+}

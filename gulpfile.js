@@ -21,6 +21,7 @@ var lib = require('bower-files')({
 
 var browserSync = require('browser-sync').create();
 var babelify = require("babelify");
+var moment = require("moment");
 
 
 gulp.task('jsBrowserify', ['concatInterface'], function(){

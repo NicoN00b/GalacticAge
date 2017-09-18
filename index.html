@@ -5,16 +5,54 @@
     <title>Super Space Age</title>
     <link rel="stylesheet" href="build/css/vendor.css">
     <script src="build/js/vendor.min.js"></script>
-    <!-- <script src="bower_components/moment/min/moment.min.js"></script> -->
     <script type="text/javascript" src="build/js/app.js"></script>
   </head>
   <body>
     <div class="container">
-      <h1>Interplanetary Conversion Calculator</h1>
-      <h3 class="now">This Time is Now: <span id="time"></span></h3>
+      <div class="current">
+        <h1>Interplanetary Conversion Calculator</h1>
+        <h3 class="now">This Time is Now: <span id="time"></span></h3>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <form id="ageForm" class="form-group">
+            <label for="birthDate"> Please Enter Your Date of Birth</label>
+            <br>
+            <input type="date" id="birthDate" required>
+            <br>
+            <button type="submit" class="btn"> Get your Age</button>
+          </form>
+          <div class="output">
+
+            <p><span id="earth-output"></span></p>
+            <p><span id ="seconds-output"></span></p>
+            <p><span id="mercury-output"></span></p>
+            <p><span id="venus-output"></span></p>
+            <p><span id="mars-output"></span></p>
+            <p><span id="jupiter-output"></span></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <form id="difference" class="form-group">
+            <h5>See the passage of time in seconds.</h5>
+            <br>
+            <label for="start-date">Please enter the 1st date</label>
+            <br>
+            <input type="date" id="start-date" required>
+            <br>
+            <label for="end-date">Please enter the 2nd date</label>
+            <br>
+            <input type="date" id="end-date" required>
+            <br>
+            <button type="submit" class="btn">Get Difference</button>
+          </form>
+          <div class="diff-output">
+            <p><span id="#diff"></span></p>
+          </div>
+        </div>
+      </div>
 
 
-      
     </div>
   </body>
 </html>
