@@ -23,3 +23,17 @@ $(document).ready(function() {
 
   });
 });
+
+$(document).ready(function(){
+  $('#difference').onclick(function(event) {
+    event.preventDefault();
+    $('.diff-output').show();
+    let start= $('#start-date').val();
+    console.log(dateX);
+    let end = $('#end-date').val();
+    console.log(dateY);
+    let calculate2 = new SolarCalc();
+    let diffSecond = calculate2.secondDiff(start, end);
+    $('#diff').html("There are " + diffSecond + " seconds between the two dates.");
+  });
+});
