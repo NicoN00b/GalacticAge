@@ -22,14 +22,4 @@ $(document).ready(function() {
     $('#jupiter-output').html(jupiterAge);
 
   });
-
-  $('#difference').submit(function(event) {
-    event.preventDefault();
-    $('.diff-output').show();
-    const dateX = $('#start-date').val();
-    const dateY = $('#end-date').val();
-    let calculate2 = new SolarCalc();
-    const diffSecond = calculate2.secondDiff(dateX, dateY);
-    $('#diff').text("There are " + diffSecond + " seconds between the two dates.");
-  });
 });

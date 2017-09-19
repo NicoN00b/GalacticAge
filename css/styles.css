@@ -1,11 +1,28 @@
-.container {
+body {
   background-image: url(../img/hyperspace.jpg);
 }
 
+.container {
+  text-emphasis-style: green;
+  color: white;
+}
+
+#birthDate {
+  color: black;
+}
+
+#start-date {
+  color: black;
+}
+
+#end-date {
+  color: black;
+}
+
 .output {
-  display: hide;
+  display: none;
 }
 
 .diff-output {
-  display: hide;
+  display: none;
 }
