@@ -14,6 +14,9 @@ $(document).ready(function() {
     const marsAge = calculate.mars(birthDate);
     const jupiterAge = calculate.jupiter(birthDate);
     const lifeEx = calculate.lifeExpectancy(birthDate);
+    console.log(lifeEx);
+    const timeLeft = calculate.timeLeft(birthDate);
+    console.log(timeLeft);
 
     $('#earth-output').html(standardAge);
     $('#seconds-output').html("Your age in seconds: " + ageSeconds);
@@ -21,19 +24,20 @@ $(document).ready(function() {
     $('#venus-output').html(venusAge);
     $('#mars-output').html(marsAge);
     $('#jupiter-output').html(jupiterAge);
-    $('#ex-output').html(lifeEx);
+    $('#ex-output').html(timeLeft);
 
   });
 
   $('#difference').submit(function(event) {
     event.preventDefault();
     $('.diff-output').show();
-    let start= $('#start-date').val();
-    console.log(dateX);
-    let end = $('#end-date').val();
-    console.log(dateY);
-    let calculate2 = new SolarCalc();
-    const diffSecond = calculate2.secondDiff(start, end);
+    let d1= $('#start-date').val();
+    console.log(d1);
+    let d2 = $('#end-date').val();
+    console.log(d2);
+    let calculate = new SolarCalc();
+    const diffSecond = calculate.secondDiff(d1, d2);
+    console.log(diffSecond);
     $('#diff').html("There are " + diffSecond + " seconds between the two dates.");
   });
 });
