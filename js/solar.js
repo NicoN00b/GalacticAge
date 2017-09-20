@@ -55,34 +55,73 @@ export class SolarCalc {
     return "On Jupiter, you are " + jupiterAge + " years old.";
   }
 
-  lifeExpectancy(birthDate){
+  lifeExpectancy(){
     let lifeEx = (Math.random() * (89 - 49) + 49).toFixed(6);
-    console.log("homies " + lifeEx);
-    let mercuryLifeEx = lifeEx * 0.24;
-    console.log('homies' + mercuryLifeEx);
-    let venusLifeEx = lifeEx * 0.62;
-    let marsLifeEx = lifeEx * 1.88;
-    let jupiterLifeEx = lifeEx * 11.86;
+    return lifeEx;
   }
 
-    // let secondsAge = ageSeconds(this.birthDate);
-    // console.log(secondsAge);
-    // if ((secondsAge / 31556930.4) > lifeEx) {
-    //   return "You have already outlived your expectancy, Congratulations!";
-    // } else {
-    //   const timeLeft = (lifeEx - (secondsAge / 31556930.4)).toFixed(6);
-    //   const mercTimeLeft = (mercuryLifeEx - mercury).toFixed(6);
-    //   const venusTimeLeft = (venusLifeEx - this.venus).toFixed(6);
-    //   const marsTimeLeft = (marsLifeEx - this.mars).toFixed(6);
-    //   const jupTimeLeft = (jupiterLifeEx - this.jupiter).toFixed(6);
-    //   return "You have " + timeLeft + " years left on Earth, " + mercTimeLeft + " years left on Mercury, " + venusTimeLeft + " years left on Venus, " + marsTimeLeft + " years left on Mars, and " + jupTimeLeft + " years left on Jupiter.  Make the most of it.";
-    // }
+  earthTimeLeft(birthDate){
+    let secondsAge = this.ageSeconds(birthDate);
+    let lifeEx = this.lifeExpectancy();
+    let earthAge = Number(secondsAge/31556930.4).toFixed(6);
+    if (earthAge => lifeEx) {
+      return ("You have already outlived your expectancy, Congratulations!");
+    } else {
+      const yearsLeft = (lifeEx - earthAge).toFixed(6);
+      const mercTimeLeft = ((lifeEx - earthAge) * 0.24);
+      const venusTimeLeft = ((lifeEx - earthAge) * 0.62);
+      const marsTimeLeft = ((lifeEx - earthAge) * 1.88);
+      const jupTimeLeft = ((lifeEx - earthAge) * 11.86);
+      return ("You have " + yearsLeft + " years left on Earth, " + mercTimeLeft + " left on Mercury, " + venusTimeLeft + " left on Venus, " + marsTimeLeft + " left on Mars, and " + jupTimeLeft + " left on Jupiter.");
+    }
+  }
 
-
-
-
-
-
-
+  // mercTimeLeft(birthDate){
+  //   let mercuryLifeEx = Number(
+  //   console.log("homies" + mercuryLifeEx);
+  //   if (this.mercuryAge() => mercuryLifeEx) {
+  //     return ("");
+  //   } else {
+  //   return (mercuryLifeEx - this.mercuryAge).toFixed(6);
+  //   }
+  // }
+  //
+  // venusTimeLeft(birthDate){
+  //   let venusLifeEx = lifeEx * 0.62;
+  //   if (this.venusAge > this.venusLifeEx) {
+  //     return "";
+  //   } else {
+  //   return (venusLifeEx - this.venus).toFixed(6);
+  //   }
+  // }
+  //
+  // marsTimeLeft(birthDate){
+  //   let marsLifeEx = lifeEx * 1.88;
+  //   if (this.marsAge > this.marsLifeEx) {
+  //     return "";
+  //   } else {
+  //   return (marsLifeEx - this.mars).toFixed(6);
+  //   }
+  // }
+  //
+  // jupTimeLeft(birthDate){
+  //   let jupiterLifeEx = lifeEx * 11.86;
+  //   if (this.jupiterAge > this.jupiterLifeEx) {
+  //     return "";
+  //   } else {
+  //   return (jupiterLifeEx - this.jupiter).toFixed(6);
+  //   }
+  // }
+  //   // let secondsAge = this.ageSeconds(birthDate);
+  //   // if ((secondsAge / 31556930.4) > lifeEx) {
+  //   //   return "You have already outlived your expectancy, Congratulations!";
+  //   // } else {
+  //   //   const timeLeft = (lifeEx - (secondsAge / 31556930.4)).toFixed(6);
+  //   //   const mercTimeLeft = (
+  //   //   const venusTimeLeft = (venusLifeEx - this.venus).toFixed(6);
+  //   //   const marsTimeLeft = (marsLifeEx - this.mars).toFixed(6);
+  //   //   const jupTimeLeft = (jupiterLifeEx - this.jupiter).toFixed(6);
+  //   //   return "You have " + timeLeft + " years left on Earth, " + mercTimeLeft + " years left on Mercury, " + venusTimeLeft + " years left on Venus, " + marsTimeLeft + " years left on Mars, and " + jupTimeLeft + " years left on Jupiter.  Make the most of it.";
+  //   // }
 
 }

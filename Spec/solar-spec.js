@@ -45,8 +45,15 @@ describe('SolarCalc', function(){
     expect(jupiterAge).toEqual("On Jupiter, you are 0.000000 years old.");
   });
 
-  it("should calculate user's life expectancy randomly and then convert to each planet", function () {
-    let lifeEx = calculate.lifeExpectancy(birthDate);
-    expect(lifeEx).toEqual("You have already outlived your expectancy, Congratulations!");
+  it("should calculate user's life expectancy randomly", function () {
+    let lifeEx = calculate.lifeExpectancy();
+    expect(lifeEx).toBeGreaterThan(48);
   });
+
+  it("should return difference between earthAge and Life Ex", function() {
+    let birthDate = new Date("1917-01-01");
+    let timeLeft =  calculate.earthTimeLeft(birthDate);
+    expect(timeLeft).toEqual("You have already outlived your expectancy, Congratulations!");
+  });
+
 });

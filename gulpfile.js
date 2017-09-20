@@ -4,7 +4,6 @@ var concat = require('gulp-concat');
 var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var utilities = require('gulp-util');
-var buildProduction = utilities.env.production;
 var del = require('del');
 var jshint = require('gulp-jshint');
 var lib = require('bower-files')({
@@ -23,6 +22,22 @@ var browserSync = require('browser-sync').create();
 var babelify = require("babelify");
 var moment = require("moment");
 
+gulp.task('bower', ['bowerJS', 'bowerCSS']);
+
+gulp.task('bowerJS', function () {
+  return gulp.src(lib.ext('js').files)
+    .pipe(concat('vendor.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./build/js'));
+});
+
+gulp.task('bowerCSS', function () {
+  return gulp.src(lib.ext('css').files)
+    .pipe(concat('vendor.css'))
+    .pipe(gulp.dest('./build/css'));
+});
+
+var buildProduction = utilities.env.production;
 
 gulp.task('jsBrowserify', ['concatInterface'], function(){
   return browserify({ entries: ['./tmp/allConcat.js'] })
@@ -52,6 +67,7 @@ gulp.task("build", ['clean'], function(){
   } else {
     gulp.start('jsBrowserify');
   }
+  gulp.start('bower');
 });
 
 
@@ -64,22 +80,6 @@ gulp.task('jshint', function(){
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
-
-gulp.task('bowerJS', function () {
-  return gulp.src(lib.ext('js').files)
-    .pipe(concat('vendor.min.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('./build/js'));
-});
-
-gulp.task('bowerCSS', function () {
-  return gulp.src(lib.ext('css').files)
-    .pipe(concat('vendor.css'))
-    .pipe(gulp.dest('./build/css'));
-});
-
-gulp.task('bower', ['bowerJS', 'bowerCSS']);
-
 
 gulp.task('serve', function() {
   browserSync.init({
